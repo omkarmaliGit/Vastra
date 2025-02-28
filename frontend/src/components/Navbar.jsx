@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
 
   return (
     <header>
@@ -35,7 +39,17 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-6">
-          <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+          <img
+            src={assets.search_icon}
+            className="w-5 cursor-pointer"
+            alt=""
+            onClick={() => {
+              setShowSearch(true);
+              location.pathname.includes("collection")
+                ? ""
+                : toast.error("Go to collection page to search");
+            }}
+          />
           <div className="group relative">
             <img
               className="w-5 cursor-pointer"
@@ -52,7 +66,9 @@ const Navbar = () => {
           </div>
           <Link to="/cart" className="relative">
             <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
-            <p className="absolute right-[-10px] bottom-[-12px] w-5 leading-4 bg-gray-600 text-white aspect-square rounded-full text-[-8px] flex items-center justify-center"></p>
+            <p className="absolute right-[-10px] bottom-[-12px] w-5 leading-4 bg-gray-600 text-white aspect-square rounded-full text-[12px] flex items-center justify-center">
+              {getCartCount()}
+            </p>
           </Link>
           <img
             onClick={() => setVisible(true)}

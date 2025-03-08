@@ -3,9 +3,11 @@ import { assets } from "../assets/assets";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between">
-      <img src={assets.logo} className="h-12" />
-      <button>Logout</button>
+    <div className="flex items-center justify-between py-2 px-[4%]">
+      <img src={assets.logo} className="w-28" />
+      <button className="bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm">
+        Logout
+      </button>
     </div>
   );
 };

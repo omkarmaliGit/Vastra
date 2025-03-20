@@ -11,7 +11,7 @@ const LatestCollection = () => {
     setLatestProducts(
       products.slice(products.length - 10, products.length + 1)
     );
-  }, []);
+  }, [products]);
 
   return (
     <section>

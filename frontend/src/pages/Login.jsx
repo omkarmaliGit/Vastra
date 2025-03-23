@@ -62,6 +62,13 @@ const Login = () => {
       onSubmit={onSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
     >
+      <a
+        href="https://vastraadmin.vercel.app/"
+        target="_blank"
+        className="bg-yellow-500 px-5 py-2 rounded-sm hover:bg-yellow-600 transition"
+      >
+        Admin Panel
+      </a>
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
         <p className="prata-regular text-3xl">{currentState}</p>
         <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
